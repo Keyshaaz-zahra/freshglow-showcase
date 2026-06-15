@@ -59,6 +59,20 @@ body{
 .card img{
     height:300px;
     object-fit:cover;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card img:hover{
+    transform:scale(1.03);
+    opacity:.9;
+}
+
+#previewImage{
+    max-height:85vh;
+    width:auto;
+    margin:auto;
+    display:block;
 }
 
 .btn-custom{
@@ -187,8 +201,11 @@ Varian Produk
 
 <div class="card">
 
-<img src="img/coklat.png">
-
+<img src="img/coklat.png"
+     class="card-img-top"
+     onclick="showImage(this.src)"
+     data-bs-toggle="modal"
+     data-bs-target="#imageModal">
 <div class="card-body">
 
 <h5>Coffee & Milk</h5>
@@ -572,6 +589,20 @@ window.open(
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 bg-transparent">
+            <img id="previewImage" class="img-fluid rounded shadow">
+        </div>
+    </div>
+</div>
+
+<script>
+function showImage(src){
+    document.getElementById("previewImage").src = src;
+}
+</script>
 
 </body>
 </html>
